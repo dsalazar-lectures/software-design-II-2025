@@ -1,25 +1,26 @@
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Hosting;
+
 var builder = WebApplication.CreateBuilder(args);
-
-// Add services to the container.
-
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+// GET al root path ("/")
+app.MapGet("/", () => "Mensaje GET desde el root path logrado con éxito.");
+
+// Request del POST al root path ("/")
+app.MapPost("/", async (HttpContext context) =>
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+    var data = await context.Request.ReadFromJsonAsync<PetRequest>();
+    return Results.Ok($"El nombre digitado es: {data?.Name}");
+});
 
-app.UseHttpsRedirection();
-
-app.UseAuthorization();
-
-app.MapControllers();
+// 3. GET con parámetro en la URL
+app.MapGet("/petName/{name}", (string name) =>
+{
+    return $"Su mascota se llama: {name}";
+});
 
 app.Run();
+
+public record PetRequest(string Name);
