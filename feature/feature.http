@@ -1,0 +1,18 @@
+@feature_HostAddress = https://localhost:7156
+
+GET {{feature_HostAddress}}/
+Accept: application/json
+
+###
+
+POST {{feature_HostAddress}}/
+Content-Type: application/json
+
+{
+  "name": "John Doe"
+}
+
+###
+
+GET {{feature_HostAddress}}/petName/Kofi
+Accept: application/json
