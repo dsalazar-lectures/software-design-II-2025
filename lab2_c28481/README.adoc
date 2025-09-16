@@ -1,0 +1,63 @@
+= Laboratorio 2: Desarrollo de una mini app en Python con Flask
+:experimental:
+:nofooter:
+:source-highlighter: pygments
+:sectnums:
+:stem: latexmath
+:toc: auto
+:toclevels: 2
+:xrefstyle: short
+
+Estudiante: Amber Villarreal Campos C28481
+
+[NOTE]
+Para más información, incluyendo imágenes con los resultados utilizando Postman, referirise al documento de la entrega en la plataforma _Mediación Virtual_.
+
+[[get-root]]
+== GET en root path (' / ')
+Se desarrolla una función donde el usuario al ingresar al root path es bienvenido con un mensaje de confirmación
+``` python
+@app.route('/', methods=['GET'])
+def hello():
+    name = request.args.get('name', 'Guest')
+    return f"Hello, {name}!: GET test accomplished"
+```
+.Ejemplos
+* Resultado: `Hello, Guest!: GET test accomplished`
+* Ingreso en el URL: `*/?name=Amber*`
+** Resultado: `Hello, Amber!: GET test accomplished`
+
+== POST en root path (' / ')
+Se desarrolla una función donde se consume una propiedad del `request` de un POST al root path: / .
+``` python
+@app.route('/', methods=['POST'])
+def handle_post():
+    if request.is_json:
+        data = request.get_json()
+        name = data.get('name', 'Unknown')
+        print(f"Flask: Received name {name} by json")
+        return f"Received name {name}"
+    
+    name = request.form.get('name', 'Unknown')
+    print(f"Flask: Received name {name} by form")
+    return f"Received name {name}"
+```
+En este se empieza a probar el manejo de request de un POST por medio de json (importante para el desarrollo del proyecto).
+
+== Mensaje por medio de valor en URL
+Esto de cumple por medio de el uso de GETs. El escenario que se plantea es una ruta `*/supermarket*` donde el usuario (guest) pregunta por _ingredientes_
+``` python
+@app.route('/supermarket/<ingredient>', methods=['GET'])
+def ask_supermarket_url(ingredient):
+    return f"Guest asking for {ingredient}"
+```
+.Ejemplo
+* Ingreso en la URL: `*/supermarket/Potato*`
+** Resultado: `Guest asking for Potato`
+
+=== Extra: Mensaje por medio de string en URL
+Adicionalmente se desarrolló otra opción donde en vez de una ruta, se puede enviar un argumento string, su función es similar a la anterior y a <<get-root,GET en root path>>
+
+.Ejemplo
+* Ingreso en la URL: `*/supermarket?ingredient=potato,tomato,apple*`
+** Resultado: `Guest asking for potato,tomato,apple`

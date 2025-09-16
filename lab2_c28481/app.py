@@ -16,11 +16,11 @@ def handle_post():
     if request.is_json:
         data = request.get_json()
         name = data.get('name', 'Unknown')
-        print(f"Flask: Received name {name} by json")
+        # print(f"Flask: Received name {name} by json")
         return f"Received name {name}"
     
     name = request.form.get('name', 'Unknown')
-    print(f"Flask: Received name {name} by form")
+    # print(f"Flask: Received name {name} by form")
     return f"Received name {name}"
 
 # 3. Mensaje con valor en la URL
