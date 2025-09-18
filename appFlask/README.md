@@ -35,7 +35,7 @@
     
 4.  Ejecuta: **Python: Create Environment** → elige **venv** → selecciona la versión de **Python**.
 
-![Creando el .venv de Python](/imagenes/Python%20Env.png)
+![Creando el .venv de Python](./imagenes/PythonEnv.png)
     
 ### Nota (PowerShell bloquea `Activate.ps1`)
 
@@ -73,13 +73,13 @@ Linux/macOS: `source .venv/bin/activate` • Windows: `.\.venv\Scripts\Activate.
 
 1. En la misma terminal dentro de la carpeta **appFlask** ejecuta el siguiente comando: `python -m flask run`, que ejecuta el servidor de desarrollo de Flask. El servidor de desarrollo busca app.py por defecto. Al ejecutar Flask, debería ver un resultado similar al siguiente:
 
-![Corriendo Flask sin debugger](/imagenes/Flask%20run.png)
+![Corriendo Flask sin debugger](./imagenes/FlaskRun.png)
 
     o
 
     python app.py (usa `app.run(debug=True)`).
 
-![Corriendo Flask con debugger](/imagenes/Flask%20run%20debugger.png)    
+![Corriendo Flask con debugger](./imagenes/FlaskRunDebugger.png)    
 
 
 Ctrl+clic en la URL para abrir en el navegador.  
@@ -96,7 +96,7 @@ Con la app corriendo (por defecto en `http://127.0.0.1:5000`) y usando Insomnia:
 
 -   **GET /** 
     
-![Evidencia GET](/imagenes/Evidencia%20Get.png) 
+![Evidencia GET](./imagenes/Evidencia-Get.png) 
     
 -   **POST /** (OK)
     
@@ -105,11 +105,11 @@ Con la app corriendo (por defecto en `http://127.0.0.1:5000`) y usando Insomnia:
 "name": "Paula"
 }
     
-![Evidencia POST](/imagenes/Evidencia%20Post.png) 
+![Evidencia POST](./imagenes/Evidencia-Post.png) 
 
     
 -   **GET /petName/nombreMascota**
     
    Ejemplo:  `http://127.0.0.1:5000/petName/Coco` 
 
-![Evidencia Get/URL](/imagenes/Evidencia%20GetUrl.png) 
+![Evidencia Get/URL](./imagenes/Evidencia-GetUrl.png) 
