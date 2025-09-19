@@ -4,6 +4,8 @@
 ## UCR - Laboratorio 2
 
 ### Ejercicio 1
+#### Desarrollo del laboratorio de GitHub
+![GET ](Imagenes/git.png)
 
 Quieres combinar múltiples commits pequeños en uno solo para dejar el historial más
 limpio, antes de enviar al remoto. ¿Qué comando se utiliza?
