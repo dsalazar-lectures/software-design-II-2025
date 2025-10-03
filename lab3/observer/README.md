@@ -13,7 +13,7 @@ Con **Observer**, la lógica de dominio solo “publica” un evento; **cada des
 
 ----------
 
-## 2) Parte teórica (50%)
+## 2) Parte teórica
 
 ### 2.1 Definición y tipo
 
@@ -59,7 +59,7 @@ Evita el **acoplamiento fuerte** entre la fuente de eventos y sus consumidores. 
 
 ----------
 
-## 3) Parte práctica (50%)
+## 3) Parte práctica
 
 Este repo implementa un **mini framework** usando `logging` de Python como _Subject_ y varios **Handlers** como _Observers_:
 
