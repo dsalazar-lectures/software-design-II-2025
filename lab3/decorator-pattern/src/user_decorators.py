@@ -66,6 +66,7 @@ class SuperAdminDecorator(UserDecorator):
 
     def get_roles(self):
         base = self._user.get_roles()
-        if "superadmin" not in base:
-            base = base + ["superadmin"]
+        for role in ["admin", "superadmin"]:
+            if role not in base:
+                base.append(role)            
         return base

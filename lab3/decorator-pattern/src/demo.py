@@ -38,7 +38,7 @@ def _demo():
     print("\nAdmin decorator:", admin.get_info())
     show_permissions(admin)
 
-    super_admin = SuperAdminDecorator(admin)
+    super_admin = SuperAdminDecorator(user)
     print("\nSuperAdmin decorator:", super_admin.get_info())
     show_permissions(super_admin)
 
