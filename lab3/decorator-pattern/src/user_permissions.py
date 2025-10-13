@@ -1,3 +1,11 @@
+"""
+Defines user roles and permissions for the Decorator Pattern demo.
+
+- Assigns numeric levels to roles and permissions.
+- Checks if a user's role is high enough to perform a given action.
+"""
+
+
 ROLE_LEVEL = {
     "user": 1,
     "admin": 2,

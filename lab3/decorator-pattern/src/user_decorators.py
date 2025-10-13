@@ -1,3 +1,11 @@
+"""
+Decorator Pattern Example: User Roles
+
+- Shows how to add new roles without changing the original User class.
+- Each decorator wraps a user and gives extra roles (admin, superadmin).
+- Decorator structure: Interface → Concrete Component → Base Decorator → Concrete Decorators.
+"""
+
 from abc import ABC, abstractmethod
 
 # 1. INTERFACE (IComponent)

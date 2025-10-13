@@ -1,24 +1,46 @@
+"""
+Decorator Pattern demo: User roles and permissions
+
+Run Command:
+    python lab3/decorator-pattern/src/demo.py
+    
+Description:
+    - This demo shows the Decorator Pattern using a user role system.
+    - The base user has a default role of "user" with basic permissions.
+    - Decorators can add new roles like "admin" or "superadmin" with more access.
+    - The `has_permission` function checks if the user can perform an action.
+
+
+Outputs:
+    Shows how decorators can be stacked to combine functionalities.
+    
+    The printed output shows the permissions for each role level:
+        User: view -> True, edit/delete -> False
+        Admin: view/edit -> True, delete -> False
+        SuperAdmin: view/edit/delete -> True
+"""
+
 from user_decorators import User, AdminDecorator, SuperAdminDecorator
 from user_permissions import has_permission
 
-def mostrar_permisos(usuario):
+def show_permissions(usuario):
     for action in ["view", "edit", "delete"]:
-        print(f"- Action: {action} ->", has_permission(usuario, action))
+        print(f"- Permision: {action} ->", has_permission(usuario, action))
 
 # 5. CLIENT
 def _demo():
     user = User("Maria")
     
     print("User:", user.get_info())
-    mostrar_permisos(user)
+    show_permissions(user)
 
     admin = AdminDecorator(user)
     print("\nAdmin decorator:", admin.get_info())
-    mostrar_permisos(admin)
+    show_permissions(admin)
 
     super_admin = SuperAdminDecorator(admin)
     print("\nSuperAdmin decorator:", super_admin.get_info())
-    mostrar_permisos(super_admin)
+    show_permissions(super_admin)
 
 
 if __name__ == "__main__":
