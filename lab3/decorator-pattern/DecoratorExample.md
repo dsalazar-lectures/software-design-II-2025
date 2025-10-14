@@ -121,8 +121,9 @@ class UserDecorator(IUser):
 class AdminDecorator(UserDecorator):
     def get_roles(self):
         base = self._user.get_roles()
-        if "admin" not in base:
-            base = base + ["admin"]
+        for role in ["admin"]:
+            if role not in base:
+                base.append(role)
         return base
 ```
 
@@ -138,8 +139,9 @@ class AdminDecorator(UserDecorator):
 class SuperAdminDecorator(UserDecorator):
     def get_roles(self):
         base = self._user.get_roles()
-        if "superadmin" not in base:
-            base = base + ["superadmin"]
+        for role in ["admin", "superadmin"]:
+            if role not in base:
+                base.append(role)            
         return base
 ```
 
