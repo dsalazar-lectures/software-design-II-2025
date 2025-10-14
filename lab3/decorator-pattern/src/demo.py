@@ -31,17 +31,20 @@ def show_permissions(usuario):
 def _demo():
     user = User("Maria")
     
-    print("User:", user.get_info())
+    print("User (base):", user.get_info())
     show_permissions(user)
 
     admin = AdminDecorator(user)
-    print("\nAdmin decorator:", admin.get_info())
+    print("\nAdmin decorator applied to User:", admin.get_info())
     show_permissions(admin)
-
-    super_admin = SuperAdminDecorator(user)
-    print("\nSuperAdmin decorator:", super_admin.get_info())
-    show_permissions(super_admin)
-
+    
+    super_admin1 = SuperAdminDecorator(admin)
+    print("\nSuperAdmin decorator applied on Admin (User -> Admin -> SuperAdmin):", super_admin1.get_info())
+    show_permissions(super_admin1)
+    
+    super_admin2 = SuperAdminDecorator(user)
+    print("\nSuperAdmin decorator applied on User (User -> SuperAdmin):", super_admin2.get_info())
+    show_permissions(super_admin2)
 
 if __name__ == "__main__":
     _demo()
