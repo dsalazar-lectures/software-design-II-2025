@@ -15,14 +15,19 @@ Carnet: C28559
 7. [Relaciones con otros patrones](#Relaciones-con-otros-patrones)
 8. [Compilar el código](#Compilar-el-código)
 9. [Referencias](#Referencias)
+
 ---
 
-## Definición
+## Definición:
+
 El patrón Chain of Responsibility (Cadena de Responsabilidad) es un patrón de comportamiento que permite que un objeto transmita una solicitud a través de una cadena de manejadores (handlers). Cada manejador de la cadena decide si procesa la solicitud o la transmite al siguiente manejador.
+
 ---
 
 ## Objetivo
+
 El objetivo del patrón CoR es fomentar un acoplamiento flexible entre el emisor y el receptor, proporcionando libertad en el manejo de la solicitud.
+
 ---
 
 ## Problema y Solución
