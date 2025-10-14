@@ -38,13 +38,13 @@ def _demo():
     print("\nAdmin decorator applied to User:", admin.get_info())
     show_permissions(admin)
     
-    super_admin1 = SuperAdminDecorator(admin)
-    print("\nSuperAdmin decorator applied on Admin (User -> Admin -> SuperAdmin):", super_admin1.get_info())
-    show_permissions(super_admin1)
+    super_admin = SuperAdminDecorator(AdminDecorator(user))
+    print("\nSuperAdmin decorator applied on Admin (User -> Admin -> SuperAdmin):", super_admin.get_info())
+    show_permissions(super_admin)
     
-    super_admin2 = SuperAdminDecorator(user)
-    print("\nSuperAdmin decorator applied on User (User -> SuperAdmin):", super_admin2.get_info())
-    show_permissions(super_admin2)
+    super_admin_only = SuperAdminDecorator(user)
+    print("\nSuperAdmin decorator applied on User (User -> SuperAdmin):", super_admin_only.get_info())
+    show_permissions(super_admin_only)
 
 if __name__ == "__main__":
     _demo()

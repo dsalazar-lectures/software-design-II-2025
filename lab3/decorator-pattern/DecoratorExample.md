@@ -120,11 +120,10 @@ class UserDecorator(IUser):
 ```python
 class AdminDecorator(UserDecorator):
     def get_roles(self):
-        base = self._user.get_roles()
-        for role in ["admin"]:
-            if role not in base:
-                base.append(role)
-        return base
+        roles = self._user.get_roles()
+        if "admin" not in roles:
+            roles.append("admin")
+        return roles
 ```
 
 - Añade el rol `admin` a un usuario existente.
@@ -138,11 +137,10 @@ class AdminDecorator(UserDecorator):
 ```python
 class SuperAdminDecorator(UserDecorator):
     def get_roles(self):
-        base = self._user.get_roles()
-        for role in ["admin", "superadmin"]:
-            if role not in base:
-                base.append(role)            
-        return base
+        roles = self._user.get_roles()
+        if "superadmin" not in roles:
+            roles.append("superadmin")
+        return roles
 ```
 
 - Añade el rol `superadmin` a un usuario existente.
