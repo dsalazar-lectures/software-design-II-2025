@@ -88,9 +88,17 @@ Encadenar manejadores "handlers" en donde:
 ---
 
 ## Compilar el código
-Para compilar el código, primero debe cargar el repositorio y entrando el archivo hasta:
+Primero debe cargar el repositorio.
+
 ```bash
-/software-design-II-2025/lab3/chain_of_responsibility/src/main.py
+/software-design-II-2025/
+```
+
+Luego, ejecuta el siguiente comando para compilar el código y se muestra los resultados esperados.
+
+
+```bash
+python lab3/chain_of_responsibility/src/main.py
 ```
 
 ---
