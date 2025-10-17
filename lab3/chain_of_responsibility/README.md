@@ -55,10 +55,10 @@ Encadenar manejadores "handlers" en donde:
 ---
 
 ## Mantenibilidad y Escalabilidad
-1. Acomplamento flexible
-2. Cadena dinámica
-3. Orden Secuencial
-4. Mecanismo de respaldo
+1. Acomplamento flexible: El remitente de una solicitud no necesita saber qué objeto específico la gestionará.
+2. Cadena dinámica: Mientras el programa se ejecuta, modificar la cadena es sencillo, esto le otorga a su código una gran flexibilidad.
+3. Orden Secuenciall: Las solicitudes se mueven por la cadena una a una, tieniendo la oportunidad de procesar la solicitud cada gestor en un orden específico.
+4. Mecanismo de respaldo: Esto significa que existe una forma predeterminada de gestionar las solicitudes que no encajan en ningún otro lugar.
 ---
 
 ## Ventajas y Desventajas
