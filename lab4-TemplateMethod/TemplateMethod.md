@@ -88,7 +88,7 @@ Un ejemplo puede ser la construcción de viviendas en masa. Hay un plan base (ci
 
 O también, otro ejemplo puede ser la rutina diaria de distintos trabajadores:
 
-![Ejemplo Rutinas de Trabajadores](img/EjemploWorkers.png)
+![Ejemplo Rutinas de Trabajadores](img/EjemploRutinas.png)
 
 ## Ventajas y desventajas de su uso
 
