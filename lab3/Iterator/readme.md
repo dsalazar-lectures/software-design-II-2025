@@ -25,3 +25,35 @@ Además de implementar el algoritmo en sí, un iterador encapsula todos los deta
 Por lo general, los iteradores proporcionan un método principal para obtener elementos de una colección. Este método se puede seguir ejecutando hasta que no devuelva nada, lo que significa que iterator ha recorrido todos los elementos. 
 
 Todos los iteradores deben implementar la misma interfaz. Esto hace que el código sea compatible con cualquier tipo de colección o cualquier algoritmo de recorrido, siempre que haya un iterador adecuado. En caso de necesitar una forma especial de recorrer una colección, se puede crear una nueva clase iteradora, sin tener que cambiar la colección.
+
+## Ejemplo de Iterator
+
+Un ejemplo de la vida real sobre cómo funciona iterator lo podemos encontrar al estar visitando una ciudad, en la que tratamos de encontrar destinos turísticos sin mucho éxito. En este caso se tienen varias opciones, la primera sería descargar una aplicación para ubicarse en la ciudad, esto puede ser poco costoso y rápido. Otra opción sería contratar a un guía turístico con el cuál se va a disfrutar más el viaje, pero también será más costoso. Tanto las direcciones aleatorias tratando de buscar algún lugar, como la aplicación, como el guía turístico, son iteradores sobre la colección de atractivos turísticos de la ciudad.
+
+Otro ejemplo de iterador se da cuando tenemos una playlist con diferentes canciones, en esta playlist tenemos opciones para reproducirla en orden secuencial o en modo aleatorio. Estos modos de reproducción tambipén actúan como iteradores sobre la misma colección de canciones, donde se puede cambiar de modo sin afectar la colección y donde se mantiene la canción actual al cambiarlo.
+
+## ¿Cómo mejora el mantenimiento y la escalabilidad del sistema?
+
+- **Separación de responsabilidades:** Si se tiene una estructura de datos compleja, el iterador puede encapsular detalles en partes más sencillas, proporcionando métodos más simples para acceder los datos. 
+
+- **Reducir la duplicación de código:** El código para algoritmos de iteración puede ser extenso. Si se integra ese código dentro de una aplicación, se puede perder la responsabilidad del código original y complicar su mantenimiento.
+
+- **Facilita la escalabilidad:** El patrón se puede utilizar para recorrer estructuras de datos de las que se desconoce su tipo. Iterator tiene interfaces genéricas para colecciones e iteradores. Al usar estas colecciones, se pueden pasar diferentes tipos de colecciones e iteradores que implementen estas interfaces.
+
+## Ventajas y desventajas
+
+### Ventajas
+
+- **Single Responsibility Principle:** Permite limpiar el código al extraer algoritmos de reocrrido a clases separadas.
+
+- **Open/Closed Principle:** Se puede implementar nuevos tipos de colecciones e iteradores y pasarlos al código existente sin que deje de funcionar el programa.
+
+- **Iterar en paralelo:** Dado que cada objeto iterador contiene su propio estado de iteración, se permite iterar la misma colección en paralelo.
+
+- **Retrasar una iteración:** Por la misma razón (cada iterador contiene su estado de iteración), se puede retrasar una iteración y continuar cuando sea necesario. 
+
+### Desventajas
+
+- **Overkill:** Puede darse si la aplicación trabaja con colecciones simples.
+
+- **Eficiencia:** Usar un iterador puede ser menos eficiente para algunas colecciones especializadas
