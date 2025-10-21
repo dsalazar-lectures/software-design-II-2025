@@ -24,11 +24,11 @@ El patrón se refleja en el **rol** que juega cada archivo/clase:
 
 ```python
 def cocinar_receta(self, despensa):
-    self._verificar_ingredientes(despensa)  # Paso fijo
-    self._preparacion(despensa)  # Paso fijo que llama a pasos_preparacion()
-    self._cocinar()  # Paso variable
-    self._emplatar() # Paso fijo
-    self._decorar()  # Hook opcional
+    self.verificar_ingredientes(despensa)  # Paso fijo
+    self.preparacion(despensa)  # Paso fijo que llama a pasos_preparacion()
+    self.cocinar()  # Paso variable
+    self.emplatar() # Paso fijo
+    self.decorar()  # Hook opcional
 ```
 
 - **Qué fija la base?**
@@ -94,8 +94,7 @@ class Omelette(PlantillaReceta):
 
 ### Función Auxiliar
 
-`Despensa`proporciona funciones para comprobar ingredientes.
-Es llamado por _verificar_ingredientes(...) para asegurar que la receta se pueda empezar.
+`Despensa` es llamado por verificar_ingredientes(...) para asegurar que no le falte ningún ingrediente y que la receta se pueda empezar.
 
 No conoce de recetas ni del orden: **no forma parte del patrón, es infraestructura.**
 
