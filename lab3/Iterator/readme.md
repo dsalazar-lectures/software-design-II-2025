@@ -32,6 +32,18 @@ Un ejemplo de la vida real sobre cómo funciona iterator lo podemos encontrar al
 
 Otro ejemplo de iterador se da cuando tenemos una playlist con diferentes canciones, en esta playlist tenemos opciones para reproducirla en orden secuencial o en modo aleatorio. Estos modos de reproducción tambipén actúan como iteradores sobre la misma colección de canciones, donde se puede cambiar de modo sin afectar la colección y donde se mantiene la canción actual al cambiarlo.
 
+## Estructura de Itrerator
+
+- La interfaz *Iterator* declara la operación requerida para recorrer la colección: obtener el siguiente elemento, recuperar la posición actual o reiniciar la iteración.
+
+- Los interadores concretos implementan algoritmos específicos apra recorrer una colección. El objeto iterador debe rastrear el progreso del recorrido por sí mismo, lo cual permite que varios iteradores reocrran la misma colección independientemente unos de otros.
+
+- La colección declara uno o varios métodos para obtener iteradores compatibles con la colección. El tipo de retorno de los métodos debe declararse como la interfaz del iterador para que las colecciones concretas puedan devolver varios tipos de iteradores.
+
+- Las colecciones concretas devuelven nuevas instancias de una clase iteradora concreta particular cada vez que el cliente solicita una. El resto del código de la colección se encuentra en esta misma clase.
+
+- El cliente trabaja tanto con colecciones como con iteradores a través de sus interfaces. De esta manera, el cliente no está acoplado a clases concretas, lo que permite utilizar varias colecciones e iteradores con el mismo código cliente.
+
 ## ¿Cómo mejora el mantenimiento y la escalabilidad del sistema?
 
 - **Separación de responsabilidades:** Si se tiene una estructura de datos compleja, el iterador puede encapsular detalles en partes más sencillas, proporcionando métodos más simples para acceder los datos. 
@@ -57,3 +69,7 @@ Otro ejemplo de iterador se da cuando tenemos una playlist con diferentes cancio
 - **Overkill:** Puede darse si la aplicación trabaja con colecciones simples.
 
 - **Eficiencia:** Usar un iterador puede ser menos eficiente para algunas colecciones especializadas
+
+## Referencias
+
+[Refactoring.guru - Iterator Pattern](https://refactoring.guru/design-patterns/iterator)
