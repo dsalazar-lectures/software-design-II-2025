@@ -70,6 +70,9 @@ Otro ejemplo de iterador se da cuando tenemos una playlist con diferentes cancio
 
 - **Eficiencia:** Usar un iterador puede ser menos eficiente para algunas colecciones especializadas
 
+### Presentación
+[Presentación de patrón iterador](https://www.canva.com/design/DAG2Yus0nS4/pxQxIZwNADJValq16VKdXg/edit?utm_content=DAG2Yus0nS4&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+
 ## Referencias
 
 [Refactoring.guru - Iterator Pattern](https://refactoring.guru/design-patterns/iterator)
