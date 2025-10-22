@@ -1,6 +1,10 @@
 from abc import ABC, abstractmethod
+from Pizza import Pizza
 
 class PizzaBuilder(ABC):
+    def __init__(self):
+        self.pizza = Pizza()
+
     @abstractmethod
     def make_dough(self):
         pass
@@ -17,6 +21,7 @@ class PizzaBuilder(ABC):
     def add_toppings(self):
         pass
 
-    @abstractmethod
     def get_pizza(self):
-        pass
+        pizza = self.pizza
+        self.pizza = Pizza()
+        return pizza

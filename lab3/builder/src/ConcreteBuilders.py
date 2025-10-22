@@ -1,10 +1,6 @@
-from Pizza import Pizza
 from PizzaBuilder import PizzaBuilder
 
 class HawaiianPizzaBuilder(PizzaBuilder):
-    def __init__(self):
-        self.pizza = Pizza()
-
     def make_dough(self):
         self.pizza.dough = 'wheat flour dough'
 
@@ -17,13 +13,7 @@ class HawaiianPizzaBuilder(PizzaBuilder):
     def add_toppings(self):
         self.pizza.toppings = 'ham, pineapple'
 
-    def get_pizza(self):
-        return self.pizza
-
 class CheeselessHawaiianPizzaBuilder(PizzaBuilder):
-    def __init__(self):
-        self.pizza = Pizza()
-
     def make_dough(self):
         self.pizza.dough = 'wheat flour dough'
 
@@ -36,13 +26,7 @@ class CheeselessHawaiianPizzaBuilder(PizzaBuilder):
     def add_toppings(self):
         self.pizza.toppings = 'ham, pineapple'
 
-    def get_pizza(self):
-        return self.pizza
-
 class PestoPizzaBuilder(PizzaBuilder):
-    def __init__(self):
-        self.pizza = Pizza()
-
     def make_dough(self):
         self.pizza.dough = 'wheat flour dough'
 
@@ -55,13 +39,7 @@ class PestoPizzaBuilder(PizzaBuilder):
     def add_toppings(self):
         pass
 
-    def get_pizza(self):
-        return self.pizza
-
 class GlutenFreeCheesePizzaBuilder(PizzaBuilder):
-    def __init__(self):
-        self.pizza = Pizza()
-
     def make_dough(self):
         self.pizza.dough = 'almond flour dough'
 
@@ -73,6 +51,3 @@ class GlutenFreeCheesePizzaBuilder(PizzaBuilder):
 
     def add_toppings(self):
         pass
-
-    def get_pizza(self):
-        return self.pizza
