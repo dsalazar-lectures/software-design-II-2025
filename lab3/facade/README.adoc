@@ -75,6 +75,48 @@ Algunas ventajas específicas incluyen:
 
 == Ejemplo en Python
 
+El cliente interactúa con una API de recetas que utiliza el patrón Facade para simplificar el acceso a las funcionalidades de obtención y adaptación de recetas según el perfil del usuario.
+
+[source,python]
+----
+def main():
+    api = RecipeAPI()
+
+    # Cliente solo requiere llamar a un método simple (la fachada)
+    result = api.get_recipe_for_user("user123", "recipe456")
+    print(f"Receta adaptada: {result}")
+----
+
+Como se observa en el fragmento anterior, la clase `RecipeAPI` actúa como una fachada que encapsula la complejidad de interactuar con los subsistemas de recetas y perfiles de usuario. El cliente solo necesita llamar a un método sencillo (`get_recipe_for_user`) sin manejar la complejidad interna.
+
+[source,python]
+----
+class RecipeAPI:
+    def __init__(self):
+        # Dependencias con los subsistemas a través de interfaces
+        self._recipes: IGetRecipe = GetRecipe()
+        self._users: IUserProfile = UserProfile()
+
+    def get_recipe_for_user(self, user_id, recipe_id):
+        """Obtiene toda la información de una receta adaptada al usuario"""
+        user_prefs = self._users.get_user_preferences(user_id)
+        recipe_details = self._recipes.get_recipe_details(recipe_id)
+        ingredients = self._recipes.get_ingredients(recipe_id)
+
+        # Filtrar ingredientes según preferencias del usuario
+        filtered_ingredients = self._filter_ingredients(
+            ingredients, user_prefs)
+        
+        return {
+            "recipe": recipe_details,
+            "ingredients": filtered_ingredients,
+            "adapted_for": user_prefs
+        }
+----
+
+[NOTE]
+El código completo del ejemplo se encuentra en link:src/RecipeAPI.py[src/RecipeAPI].
+
 == Referencias
 [[GeeksforGeeks2025]]
 [1] GeeksforGeeks. (2025, 26 de septiembre). Facade Method design pattern. GeeksforGeeks. https://www.geeksforgeeks.org/system-design/facade-design-pattern-introduction/
