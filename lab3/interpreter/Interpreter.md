@@ -4,7 +4,7 @@
 1. [¿Qué es?](#qué-es)
 2. [Casos de uso](#casos-de-uso)
 3. [Estructura](#estructura)
-4. [Diagrama](#diagrama)
+4. [Diagrama del ejemplo práctico](#diagrama-del-ejemplo-práctico)
 5. [Ventajas y desventajas](#ventajas-y-desventajas)
 6. [Ejemplo práctico](#ejemplo-práctico)
 7. [Referencias](#referencias)
@@ -47,8 +47,8 @@ interpretación. Entre sus funciones se encuentran el armar el árbol de expresi
 
 > Dependiendo del ejemplo se puede encontrar al cliente y al interpretador en clases separadas.
 
-### Diagrama
-![Estructura Interpreter]()
+### Diagrama del ejemplo práctico
+![Estructura Interpreter](images/Interpreter-Example.jpg)
 
 ## Ventajas y Desventajas
 
