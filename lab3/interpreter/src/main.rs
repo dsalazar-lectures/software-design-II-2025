@@ -18,12 +18,17 @@ fn main() {
         "arroz".to_string(),
         "huevo".to_string(),
         "leche".to_string(),
-        "chocolate".to_string(),
-        "tofu".to_string()
+        "polvo de hornear".to_string(),
+        "pan".to_string(),
+        "pescado".to_string(),
+        "papa".to_string(),
         ]);
     
     let requests = ["recetas con pollo y arroz", "postre sin huevo",
-                                "platos con tofu"];
+                                "desayuno sin pan", 
+                                "postres sin polvo de hornear", 
+                                "platos con pescado",
+                                "cena con papas"];
 
     let interpreter = SearchQuery::new();
 

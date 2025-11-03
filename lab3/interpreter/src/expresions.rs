@@ -48,8 +48,12 @@ impl IExpression for Type {
             ExpressionResult::Text("Postre".into())
         } else if context.text.contains("plato") {
             ExpressionResult:: Text("Plato principal".into())
-        } else if context.text.contains("recete") {
+        } else if context.text.contains("receta") {
             ExpressionResult::Text("General".into())
+        } else if context.text.contains("desayuno") {
+            ExpressionResult::Text("Desayuno".into())
+        } else if context.text.contains("cena") {
+            ExpressionResult::Text("Cena".into())
         } else {
             ExpressionResult::None
         }
