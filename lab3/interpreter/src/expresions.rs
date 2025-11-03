@@ -1,3 +1,13 @@
+/*
+    expressions.rs
+    ---------------------------------------------------------------------------
+    These are the expressions that build the tree.
+    Ingredient and Type are terminal expressions whereas SearchQuery is 
+    non-terminal.
+
+*/
+
+
 use crate::search_context::SearchContext;
 /* 
     --------------------------------------------------
@@ -44,16 +54,14 @@ pub struct Type;
 impl IExpression for Type {
     fn interpret(&self, context: &SearchContext) -> ExpressionResult {
 
-        if context.text.contains("postre") {
-            ExpressionResult::Text("Postre".into())
-        } else if context.text.contains("plato") {
-            ExpressionResult:: Text("Plato principal".into())
-        } else if context.text.contains("receta") {
-            ExpressionResult::Text("General".into())
-        } else if context.text.contains("desayuno") {
-            ExpressionResult::Text("Desayuno".into())
-        } else if context.text.contains("cena") {
-            ExpressionResult::Text("Cena".into())
+        if context.text.contains("dessert") {
+            ExpressionResult::Text("Dessert".into())
+        } else if context.text.contains("recipe") {
+            ExpressionResult:: Text("General".into())
+        } else if context.text.contains("breakfast") {
+            ExpressionResult::Text("Breakfast".into())
+        } else if context.text.contains("dinner") {
+            ExpressionResult::Text("Dinner".into())
         } else {
             ExpressionResult::None
         }
@@ -86,20 +94,21 @@ impl IExpression for SearchQuery {
         let mut include = vec![];
         let mut exclude = vec![];
 
-        if context.text.contains("con") {
-            include = ingredients;
-        } else if context.text.contains("sin") {
+        if context.text.contains("without") {
             exclude = ingredients;
+        } else if context.text.contains("with") {
+            include = ingredients;
         }
 
         ExpressionResult::Text(format!(
-            "tipo: {:?}, incluir: {:?}, excluir: {:?}", 
+            "type: {:?}, include: {:?}, exclude: {:?}", 
             r_type, include, exclude
         ))
 
     }
 }
 
+// Method to create a SearchQuery("constructor")
 impl SearchQuery {
     pub fn new() -> Self {
         Self {

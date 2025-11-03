@@ -1,4 +1,17 @@
-// Include expression.rs and search_context.rs files
+/*
+    main.rs
+    ---------------------------------------------------------------------------
+    A very small demonstration of the pattern Interpreter in Rust.
+
+    The language to process are the user's search input and an informal grammar
+    was defined as follows:
+
+    <search> := <filter_type>?<filter_inclusion/exclusion>?<ingredient>
+    <filter_type> := "dinner" | "breakfast" | "dessert" ...
+    <filter_inclusion> := "with" <ingredient> ("and" <ingredient>)
+    <filter_exclusion> := "without" <ingredient> ("and" <ingredient>)
+
+*/
 mod expresions;
 mod search_context;
 
@@ -14,21 +27,22 @@ use crate::search_context::SearchContext;
 */
 fn main() {
     let supported_ingredients = HashSet::from([
-        "pollo".to_string(), 
-        "arroz".to_string(),
-        "huevo".to_string(),
-        "leche".to_string(),
-        "polvo de hornear".to_string(),
-        "pan".to_string(),
-        "pescado".to_string(),
-        "papa".to_string(),
+        "chicken".to_string(), 
+        "rice".to_string(),
+        "egg".to_string(),
+        "milk".to_string(),
+        "baking powder".to_string(),
+        "bread".to_string(),
+        "fish".to_string(),
+        "potato".to_string(),
         ]);
     
-    let requests = ["recetas con pollo y arroz", "postre sin huevo",
-                                "desayuno sin pan", 
-                                "postres sin polvo de hornear", 
-                                "platos con pescado",
-                                "cena con papas"];
+    let requests = ["recipes with chicken and rice", 
+                                "dessert without eggs",
+                                "breakfast without bread", 
+                                "dessert without baking powder", 
+                                "recipes with fish",
+                                "dinner with potatoes"];
 
     let interpreter = SearchQuery::new();
 
