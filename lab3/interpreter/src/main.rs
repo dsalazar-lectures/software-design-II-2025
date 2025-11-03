@@ -53,6 +53,6 @@ fn main() {
         };
         let result = interpreter.interpret(&context);
         println!("Request: {}", r);
-        println!("Resultado: {:?}", result);
+        println!("Result: {:?}", result);
     }
 }
