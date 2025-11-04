@@ -1,3 +1,5 @@
 # Patrón de Diseño: `Mediator`
 
-Autor: **José Manuel Mora Z - C35280**
+José Manuel Mora Z - C35280
+
+## Definición
