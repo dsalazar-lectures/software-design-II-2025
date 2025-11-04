@@ -9,6 +9,7 @@ def main():
         usuario="Yordi",
         rol="Admin",
         accion="Login",
+        id_object=None,
         descripcion=f"{user} logged in successfully"
     )
 

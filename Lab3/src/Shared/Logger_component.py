@@ -33,7 +33,7 @@ class CustomLogger:
             console.setLevel(logging.DEBUG)
             formatter = logging.Formatter(
                 "%(asctime)s | %(levelname)s | Usuario: %(usuario)s | "
-                "Rol: %(rol)s | Acción: %(accion)s | Descripción: %(descripcion)s",
+                "Rol: %(rol)s | Acción: %(accion)s | Id_object: %(id_object)s | Descripción: %(descripcion)s",
                 "%Y-%m-%d %H:%M:%S",
             )
             console.setFormatter(formatter)
@@ -57,17 +57,18 @@ class CustomLogger:
         fh.setFormatter(
             logging.Formatter(
                 "%(asctime)s | %(levelname)s | Usuario: %(usuario)s | "
-                "Rol: %(rol)s | Acción: %(accion)s | Descripción: %(descripcion)s",
+                "Rol: %(rol)s | Acción: %(accion)s | Id_object: %(id_object)s | Descripción: %(descripcion)s",
                 "%Y-%m-%d %H:%M:%S",
             )
         )
         self.logger.addHandler(fh)
 
-    def log(self, level: str, usuario: str, rol: str, accion: str, descripcion: str):
+    def log(self, level: str, usuario: str, rol: str, accion: str, descripcion: str, id_object: Optional[str] = None):
         extra = {
             "usuario": usuario,
             "rol": rol,
             "accion": accion,
+            "id_object": str(id_object) if id_object is not None else "N/A",
             "descripcion": descripcion,
         }
         method = {

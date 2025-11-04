@@ -9,6 +9,7 @@ def main():
         usuario="Alice",
         rol="Chef",
         accion="Add recipe",
+        id_object="123",
         descripcion=f"Recipe added successfully: {result1}"
     )
 
