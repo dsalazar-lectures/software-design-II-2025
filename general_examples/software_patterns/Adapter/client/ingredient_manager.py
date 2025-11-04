@@ -5,8 +5,13 @@ class IngredientManager:
         self.provider = provider
 
     def process_ingredient(self, ingredient_id: str):
-        ingredient = self.provider.get_ingredient(ingredient_id)
-        self.save_ingredient(ingredient)
+        for provider in self.provider:
+            ingredient = provider.get_ingredient(ingredient_id)
+            if ingredient:
+                self.save_ingredient(ingredient)
+                break
+        else:
+            print(f"Ingredient with ID {ingredient_id} not found in any provider.")
 
     def save_ingredient(self, ingredient):
         print(f" Saved ingredient: {ingredient}")
