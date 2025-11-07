@@ -91,6 +91,12 @@ Como extra, es importante saber cuándo no usar el patrón `Mediator`:
 
 ## Ejemplo de Código
 
+El código se encuentra en [mediator_example.py](./mediator_example.py).
+
+Este simula brevemente la creación de un menú para dos usuarios, uno con restricciones alimenticias y otro sin restricciones. El mediador se encarga de coordinar las interacciones entre los servicios de menú, recetas y perfiles de usuario.
+
+Cada componente maneja su propia lógica, mientras que el mediador centraliza la comunicación y asegura que los componentes trabajen juntos de manera coherente.
+
 ## Referencias
 
 [1] Refactoring.Guru, “[Mediator](https://refactoring.guru/design-patterns/mediator),” Refactoring.Guru, Jan. 01, 2025.
