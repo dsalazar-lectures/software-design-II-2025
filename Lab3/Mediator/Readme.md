@@ -45,10 +45,10 @@ El patrón `Mediator` es aplicable en los siguientes escenarios:
 
 | Ventajas | Desventajas |
 |:---------|:------------|
-| SRP. Se pueden extraer las comunicaciones entre componentes a un solo lugar. Facilitando la comprensión y el mantenimiento del código. [[1]](#referencias) | Puede volverse un "God Object" que conoce demasiado sobre los componentes y sus interacciones, lo que dificulta su mantenimiento. [[1]](#referencias) |
-| OPP. Se pueden introducir nuevos mediadores sin tener que cambiar los componentes. [[1]](#referencias) | Si se le agregan demasiadas responsabilidades, entonces puede pasarse de la raya y romper SRP. [[2]](#referencias) |
-| Reduce acoplamiento entre componentes. [[1]](#referencias) | Puede llegar a crear overhead y afectar el rendimiento del programa. [[2]](#referencias) |
-| Facilita la reutilización de componentes. [[1]](#referencias) | Si las interacciones del programa son simples, implementar el patrón es complicarse la vida por gusto [[2]](#referencias) |
+| SRP. Se pueden extraer las comunicaciones entre componentes a un solo lugar. Facilitando la comprensión y el mantenimiento del código. [[1]](#referencias) | Si se le agregan demasiadas responsabilidades, el mediador puede convertirse en un "God Object" que conoce demasiado sobre los componentes y sus interacciones. Esto dificulta su mantenimiento, testeo y puede llegar a romper SRP. [[1]](#referencias) [[2]](#referencias) |
+| OPP. Se pueden introducir nuevos mediadores sin tener que cambiar los componentes. [[1]](#referencias) | Puede llegar a crear overhead y afectar el rendimiento del programa si no se dispone de los recursos necesarios. [[2]](#referencias) |
+| Reduce acoplamiento entre componentes. [[1]](#referencias) | Si las interacciones del programa son simples, implementar el patrón es complicarse la vida por gusto [[2]](#referencias) |
+| Facilita la reutilización de componentes. [[1]](#referencias) |  |
 
 ## Relaciones con otros patrones
 
@@ -88,6 +88,16 @@ Como extra, es importante saber cuándo no usar el patrón `Mediator`:
 * Cuando las interacciones entre componentes son simples, directas y no presentan un problema.
 * Cuando el mediador se vuelve demasiado complejo y difícil de mantener.
 * Cuando el rendimiento es crítico y la sobrecarga del mediador puede ser un problema. [[2]](#referencias)
+
+## Testing
+
+En tema de testing, al reducir las dependencias entre componentes, el patrón `Mediator` facilita la creación de pruebas unitarias para cada componente de manera aislada. Como cada componente solo depende del mediador, al construir el test solo se necesita incluir o mockear el mediador, en lugar de todos los componentes relacionados.
+
+En cuanto al mediador en sí, la situación se complica un poco más, pero no en el sentido de que haya que hacer tests complejos, sino que hay que centrarse en lo importante. El mediador coordina a los componentes, por lo que éste debe ser el objetivo principal de las pruebas.
+
+Para probar el mediador, se pueden mockear los componentes individuales y verificar que el mediador coordina correctamente las interacciones entre ellos. Esto permite asegurar que el mediador cumple su función sin necesidad de probar la lógica interna de cada componente en este contexto.
+
+Posteriormente, se pueden realizar pruebas de integración para asegurar que los componentes y el mediador trabajan juntos correctamente en un entorno realista.
 
 ## Ejemplo de Código
 
