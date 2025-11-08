@@ -47,8 +47,8 @@ El patrón `Mediator` es aplicable en los siguientes escenarios:
 |:---------|:------------|
 | SRP. Se pueden extraer las comunicaciones entre componentes a un solo lugar. Facilitando la comprensión y el mantenimiento del código. [[1]](#referencias) | Si se le agregan demasiadas responsabilidades, el mediador puede convertirse en un "God Object" que conoce demasiado sobre los componentes y sus interacciones. Esto dificulta su mantenimiento, testeo y puede llegar a romper SRP. [[1]](#referencias) [[2]](#referencias) |
 | OPP. Se pueden introducir nuevos mediadores sin tener que cambiar los componentes. [[1]](#referencias) | Puede llegar a crear overhead y afectar el rendimiento del programa si no se dispone de los recursos necesarios. [[2]](#referencias) |
-| Reduce acoplamiento entre componentes. [[1]](#referencias) | Si las interacciones del programa son simples, implementar el patrón es complicarse la vida por gusto [[2]](#referencias) |
-| Facilita la reutilización de componentes. [[1]](#referencias) |  |
+| Reduce acoplamiento entre componentes, reduciendo las dependencias dentro del sistema únicamente a los mediadores. [[1]](#referencias) | Si las interacciones del programa son simples, implementar el patrón es complicarse la vida por gusto [[2]](#referencias) |
+| Facilita la reutilización de componentes, debido al menor número de dependencias de estos. [[1]](#referencias) | Al centralizar el flujo de datos, si algo le llega a pasar al mediador o llega a fallar dentro, esto puede paralizar el sistema entero. |
 
 ## Relaciones con otros patrones
 
