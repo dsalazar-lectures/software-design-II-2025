@@ -306,3 +306,36 @@ Los repositorios deben aceptar especificaciones para filtrar entidades.
 - **Bid Optimization**: Ajustar pujas según probabilidad de conversión
 
 ---
+
+## Ejemplos de Código
+
+Los ejemplos completos de implementación del patrón Specification se encuentran en el archivo [`ejemplos.py`](./ejemplos.py).
+
+El ejemplo está basado en un **Sistema de Recetas, Menús e Ingredientes**, que incluye:
+
+### Contenido de los ejemplos:
+
+1. **Estructura Base** - Interfaz `Specification` y operadores lógicos (AND, OR, NOT)
+2. **Modelos del Dominio** - `Ingredient`, `Recipe`, `Menu` con sus propiedades
+3. **Especificaciones para Recetas** - Filtros por ingredientes, tiempo, dificultad, calorías, tipo de dieta, etc.
+4. **Especificaciones Compuestas** - `QuickMealSpec`, `HealthyDietSpec`, `FamilyFriendlySpec`
+5. **Repository Pattern** - `RecipeRepository` para búsqueda y filtrado de recetas
+6. **Factory de Especificaciones** - `RecipeSpecs` con métodos estáticos para casos comunes
+7. **Especificaciones para Menús** - Validación de menús balanceados, calorías totales, tiempo eficiente
+
+### Casos de uso implementados:
+
+- Buscar recetas rápidas (< 30 minutos)
+- Filtrar por tipo de dieta (vegetariana, vegana, sin gluten, etc.)
+- Encontrar recetas saludables (bajas en calorías)
+- Evitar alergias (excluir ingredientes específicos)
+- Recetas con ingredientes disponibles en despensa
+- Validar menús diarios balanceados
+- Búsquedas complejas combinando múltiples criterios
+
+### Ejecutar los ejemplos:
+
+```bash
+cd lab3/Specification
+python3 ejemplos.py
+```

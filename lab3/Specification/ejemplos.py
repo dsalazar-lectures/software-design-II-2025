@@ -593,7 +593,7 @@ def main():
     for r in recetas_familia:
         print(f"{r.name}")
         print(f"Porciones: {r.servings}, Tiempo: {r.preparation_time} min")
-        print(f"Calorías: {r.calories}, Dificultad: {r.difficulty.value}")
+        print(f"Calorías: {r.calories}, Dificultad: {r.difficulty.value}\n")
 
 
 if __name__ == "__main__":
