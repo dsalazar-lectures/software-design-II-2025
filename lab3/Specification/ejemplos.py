@@ -235,3 +235,28 @@ class AvailableIngredientsSpec(Specification):
         recipe_ingredients = {ing.name.lower() for ing in recipe.ingredients}
         return recipe_ingredients.issubset(self.available_ingredients)
 
+
+# Ejemplo 3: Composición de Especificaciones para Recetas
+def ejemplo_composicion():
+    """Ejemplo de cómo componer especificaciones de recetas"""
+    
+    # Recetas rápidas y fáciles
+    quick_and_easy = (
+        PreparationTimeSpec(30)
+        .and_(DifficultySpec(DifficultyLevel.EASY))
+    )
+    
+    # Recetas vegetarianas bajas en calorías
+    healthy_vegetarian = (
+        DietTypeSpec(DietType.VEGETARIAN)
+        .and_(CaloriesRangeSpec(0, 500))
+    )
+    
+    # Recetas para cena sin gluten
+    gluten_free_dinner = (
+        MealTypeSpec(MealType.DINNER)
+        .and_(DietTypeSpec(DietType.GLUTEN_FREE))
+    )
+    
+    return quick_and_easy, healthy_vegetarian, gluten_free_dinner
+
