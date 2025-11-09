@@ -260,3 +260,50 @@ def ejemplo_composicion():
     
     return quick_and_easy, healthy_vegetarian, gluten_free_dinner
 
+
+# Ejemplo 4: Especificaciones Compuestas de Alto Nivel
+class QuickMealSpec(Specification):
+    """Comida rápida: fácil de preparar y en poco tiempo"""
+    
+    def __init__(self):
+        self.spec = (
+            PreparationTimeSpec(30)
+            .and_(DifficultySpec(DifficultyLevel.EASY))
+        )
+    
+    def is_satisfied_by(self, recipe):
+        return self.spec.is_satisfied_by(recipe)
+
+
+class HealthyDietSpec(Specification):
+    """Receta saludable: baja en calorías y rica en nutrientes"""
+    
+    def __init__(self):
+        self.spec = CaloriesRangeSpec(0, 600)
+    
+    def is_satisfied_by(self, recipe):
+        return self.spec.is_satisfied_by(recipe)
+
+
+class FamilyFriendlySpec(Specification):
+    """Receta para familia: sirve para 4-6 personas, fácil de hacer"""
+    
+    def __init__(self):
+        self.spec = (
+            ServingsSpec(4, 6)
+            .and_(DifficultySpec(DifficultyLevel.EASY).or_(DifficultySpec(DifficultyLevel.MEDIUM)))
+        )
+    
+    def is_satisfied_by(self, recipe):
+        return self.spec.is_satisfied_by(recipe)
+
+
+class GourmetSpec(Specification):
+    """Receta gourmet: alta dificultad, para ocasiones especiales"""
+    
+    def __init__(self):
+        self.spec = DifficultySpec(DifficultyLevel.HARD)
+    
+    def is_satisfied_by(self, recipe):
+        return self.spec.is_satisfied_by(recipe)
+
