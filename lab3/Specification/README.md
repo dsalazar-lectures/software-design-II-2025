@@ -11,6 +11,7 @@
 8. [Aplicaciones Prácticas](#aplicaciones-prácticas)
 9. [Ejemplos en Compañías Grandes](#ejemplos-en-compañías-grandes)
 10. [Ejemplos de Código](#ejemplos-de-código)
+11. [Referencias Bibliográficas](#referencias-bibliográficas)
 
 ---
 
@@ -339,3 +340,20 @@ El ejemplo está basado en un **Sistema de Recetas, Menús e Ingredientes**, que
 cd lab3/Specification
 python3 ejemplos.py
 ```
+
+---
+
+## Referencias Bibliográficas
+
+1. **Evans, Eric** (2003). *Domain-Driven Design: Tackling Complexity in the Heart of Software*. Addison-Wesley Professional. ISBN: 978-0321125215
+   - Introducción original del patrón Specification en el contexto de Domain-Driven Design
+
+2. **Fowler, Martin & Rice, David & Foemmel, Matthew & Hieatt, Edward & Mee, Robert & Stafford, Randy** (2002). *Patterns of Enterprise Application Architecture*. Addison-Wesley Professional. ISBN: 978-0321127420
+   - Documentación del patrón Specification y su integración con Repository Pattern
+
+3. **Evans, Eric & Fowler, Martin** (2005). "Specifications". *martinfowler.com*
+   - Paper original que formaliza el patrón Specification
+   - Disponible en: https://martinfowler.com/apsupp/spec.pdf
+
+4. **Vernon, Vaughn** (2013). *Implementing Domain-Driven Design*. Addison-Wesley Professional. ISBN: 978-0321834577
+   - Implementaciones prácticas y casos de uso del patrón en arquitecturas modernas
