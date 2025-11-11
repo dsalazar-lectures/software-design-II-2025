@@ -69,7 +69,7 @@ El patrón `Mediator` es aplicable en los siguientes escenarios:
 3. Implementar el mediador concreto. Es recomendable guardar referencias a todos los componentes que maneja, así el mediador puede llamarlos directamente desde sus métodos.
 4. Como extra, se puede responsabilizar al mediador de crear y destruir los componentes que maneja. Esto hace que el mediador pueda parecer un `Factory` o `Facade`.
 5. Los componentes deberían mantener una referencia al mediador. Usualmente se le pasa el mediador al constructor del componente.
-6. Cambiar los componentes para que se comuniquen solo con el mediador, en lugar de otros componentes. Extraer el código de comunicación a los métodos del mediador, que se llaman cuando el mediador es notificado por un componente. [[1]](#referencias)
+6. Modificar la lógica de los componentes para que se comuniquen solo con el mediador, en lugar de otros componentes. Extraer el código de comunicación a los métodos del mediador, que se llaman cuando el mediador es notificado por un componente. [[1]](#referencias)
 
 ## Casos de Uso
 
@@ -78,7 +78,7 @@ A continuación, se presenta una simple lista de casos de uso del patrón `Media
 * Comunicación compleja entre componentes y se quiere reducir las dependencias.
 * Reducción del acoplamiento entre componentes.
 * Centralización del control sobre las interacciones entre componentes.
-* Poder hacer cambios en el comportamiento de los componentes sin afectar a otros.
+* Modificar el comportamiento de los componentes sin afectar a otros.
 * Reutilización de componentes en diferentes contextos. [[2]](#referencias)
 
 ### ¿Cuándo no usar el patrón `Mediator`?
