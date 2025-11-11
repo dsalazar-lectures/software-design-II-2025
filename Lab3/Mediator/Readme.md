@@ -21,6 +21,7 @@ El uso del patrón `Mediator` mejora significativamente el mantenimiento y la es
 ## Estructura
 
 ![Estructura del patrón Mediator](https://refactoring.guru/images/patterns/diagrams/mediator/structure-indexed-1.5x.png)
+
 *Imagen: Refactoring.Guru - Mediator Pattern [[1]](#referencias)*
 
 1. **Componentes**: Son las clases que contienen la lógica de negocio. Cada uno tiene una referencia al mediador, declarada con el tipo de interfaz del mediador. El componente no conoce la clase concreta del mediador, lo que permite cambiar el mediador sin afectar a los componentes.
