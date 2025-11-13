@@ -54,6 +54,7 @@ import threading
 import time
 from typing import List, Optional
 
+# Representa una conexión individual a la base de datos
 class DatabaseConnection:
     def __init__(self, connection_id: int):
         self.connection_id = connection_id
@@ -70,10 +71,12 @@ class DatabaseConnection:
         """Resetea la conexión para reutilización"""
         self.in_use = False
 
+# Pool de conexiones que gestiona múltiples conexiones a la base de datos
 class ConnectionPool:
     _instance = None
     _lock = threading.Lock()
     
+    #Garantiza que solo exista una instancia del pool en toda la aplicación, evitando la creación múltiple de pools.
     def __new__(cls):
         with cls._lock:
             if cls._instance is None:
@@ -157,4 +160,4 @@ if __name__ == "__main__":
     main()
 
 ```
-- Este ejemplo muestra cómo el Object Pool reutiliza conexiones en lugar de crearlas y destruirlas constantemente, mejorando significativamente el rendimiento.
+-El ejemplo implementa un pool de conexiones a base de datos que reutiliza objetos costosos en lugar de crearlos y destruirlos constantemente. El ConnectionPool se inicializa con 5 conexiones pre-creadas (DatabaseConnection) que se almacenan en una lista de disponibles; cuando un cliente solicita una conexión mediante acquire_connection(), el pool entrega una de estas conexiones existentes marcándola como "en uso", y cuando el cliente la libera con release_connection(), la conexión se resetea y vuelve al pool para ser reutilizada. Esto optimiza significativamente el rendimiento al evitar el overhead de crear nuevas conexiones cada vez, manteniendo un conjunto controlado de recursos que pueden ser compartidos eficientemente entre múltiples clientes.
