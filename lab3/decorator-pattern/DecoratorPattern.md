@@ -70,6 +70,7 @@ El siguiente diagrama muestra la estructura general del patrón Decorator, mostr
 - **Ampliación de funciones sin herencia:** las funcionalidades pueden añadirse o quitarse en tiempo de ejecución.
 - **Composición de funcionalidades:** combina múltiples decoradores para crear objetos complejos.
 - **Responsabilidad única:** cada decorador tiene una función específica y bien definida.
+- **Escalabilidad y mantenimiento:** facilita agregar nuevas funcionalidades de manera modular y reduce el acoplamiento entre clases, permitiendo extender o modificar comportamientos sin afectar otros componentes del sistema.
 
 ### Desventajas
 
