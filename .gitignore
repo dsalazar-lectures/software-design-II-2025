@@ -205,3 +205,13 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# ignore visual studio build files by blocking folders
+.vs/
+build/
+x64/
+Debug/
+Release/
+ipch/
+[Bb]in/
+[Oo]bj/
